@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react'
 import Header from './components/Header'
 import VentadaModal from './components/VentadaModal'
+import { generarId } from './helpers'
 import IconoNuevoGasto from './img/nuevo-gasto.svg'
 
 
@@ -12,11 +13,24 @@ function App() {
   const [ventanaModal, setVentanaModal] = useState(false)
   const [animarModal, setAnimarModal] = useState(false)
 
+  const [gastos, setGastos] = useState([])
+
   const handleNuevoGasto = () => {
     setVentanaModal(true)
 
     setTimeout(() => {
       setAnimarModal(true)
+    }, 500);
+  }
+
+  const guardarGasto = gasto => {
+    gasto.id = generarId()
+    setGastos([...gastos, gasto])
+
+    setAnimarModal(false)  
+        
+    setTimeout(() => {
+      setVentanaModal(false)
     }, 500);
   }
 
@@ -44,7 +58,8 @@ function App() {
                           setVentanaModal = { setVentanaModal }
                           setAnimarModal = { setAnimarModal }
                           animarModal = { animarModal }
-                      /> }
+                          guardarGasto = { guardarGasto }
+                      />}
 
     </div>
   )
