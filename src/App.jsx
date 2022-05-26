@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import Header from './components/Header'
 import VentadaModal from './components/VentadaModal'
 import IconoNuevoGasto from './img/nuevo-gasto.svg'
@@ -10,8 +10,14 @@ function App() {
   const [isValidPresupuesto, setIsValidPresupuesto] = useState(false)
 
   const [ventanaModal, setVentanaModal] = useState(false)
+  const [animarModal, setAnimarModal] = useState(false)
+
   const handleNuevoGasto = () => {
     setVentanaModal(true)
+
+    setTimeout(() => {
+      setAnimarModal(true)
+    }, 500);
   }
 
   return (
@@ -36,6 +42,8 @@ function App() {
 
       {ventanaModal && <VentadaModal 
                           setVentanaModal = { setVentanaModal }
+                          setAnimarModal = { setAnimarModal }
+                          animarModal = { animarModal }
                       /> }
 
     </div>
