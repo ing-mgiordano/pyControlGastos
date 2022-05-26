@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react'
 import Header from './components/Header'
+import ListadoGastos from './components/ListadoGastos'
 import VentadaModal from './components/VentadaModal'
 import { generarId } from './helpers'
 import IconoNuevoGasto from './img/nuevo-gasto.svg'
@@ -7,7 +8,7 @@ import IconoNuevoGasto from './img/nuevo-gasto.svg'
 
 
 function App() {
-  const [presupuesto, setPresupuesto] = useState(0)
+  const [presupuesto, setPresupuesto] = useState()
   const [isValidPresupuesto, setIsValidPresupuesto] = useState(false)
 
   const [ventanaModal, setVentanaModal] = useState(false)
@@ -25,6 +26,7 @@ function App() {
 
   const guardarGasto = gasto => {
     gasto.id = generarId()
+    gasto.fecha = Date.now()  //me retorna la fecha en la que se crea el elemento
     setGastos([...gastos, gasto])
 
     setAnimarModal(false)  
@@ -45,13 +47,20 @@ function App() {
       />
 
       {isValidPresupuesto && (   /* si el presupuesto es valido se imprime el icono de nuevo gasto */
-        <div  className='nuevo-gasto'>
-          <img 
-            src={IconoNuevoGasto} 
-            alt='icono nvo gasto' 
-            onClick={handleNuevoGasto}
-          />
-        </div>
+        <>
+          <main>
+            <ListadoGastos 
+              gastos={gastos}
+            />
+          </main>
+          <div  className='nuevo-gasto'>
+            <img 
+              src={IconoNuevoGasto} 
+              alt='icono nvo gasto' 
+              onClick={handleNuevoGasto}
+            />
+          </div>
+        </>
       )}
 
       {ventanaModal && <VentadaModal 
