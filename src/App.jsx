@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Header from './components/Header'
+import VentadaModal from './components/VentadaModal'
 import IconoNuevoGasto from './img/nuevo-gasto.svg'
 
 
@@ -33,7 +34,9 @@ function App() {
         </div>
       )}
 
-      {ventanaModal && <p>SE ABRE VENTADA MODAL</p> }
+      {ventanaModal && <VentadaModal 
+                          setVentanaModal = { setVentanaModal }
+                      /> }
 
     </div>
   )
