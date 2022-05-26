@@ -63,7 +63,7 @@ const VentadaModal = ({ setVentanaModal, setAnimarModal, animarModal, guardarGas
             </div>
 
             <div className='campo'>
-                <label htmlFor='cantidad'>Cantidad</label>
+                <label htmlFor='cantidad'>Cantidad(€)</label>
                 <input
                     id='cantidad'
                     type='number' 
@@ -81,6 +81,7 @@ const VentadaModal = ({ setVentanaModal, setAnimarModal, animarModal, guardarGas
                     onChange={e => setCategoria(e.target.value)}
                 >
                     <option value=''>-- Seleccione --</option>
+                    <option value='ahorro'>Ahorro</option>
                     <option value='comida'>Comida</option>
                     <option value='casa'>Casa</option>
                     <option value='gastos'>Gastos Varios</option>
