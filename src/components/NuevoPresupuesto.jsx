@@ -13,7 +13,7 @@ const NuevoPresupuesto = ({
         e.preventDefault()
         
         //presupuesto no valido
-        if(!presupuesto || presupuesto<= 0) {
+        if(!presupuesto || presupuesto <= 0) {   /* si no hay presupuesto o el presupuesto es menor a cero */
             setMensaje('No es un presupuesto valido')
             return
         }

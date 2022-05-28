@@ -63,7 +63,7 @@ const VentadaModal = ({ setVentanaModal, setAnimarModal, animarModal, guardarGas
             </div>
 
             <div className='campo'>
-                <label htmlFor='cantidad'>Cantidad(€)</label>
+                <label htmlFor='cantidad'>{`Cantidad(€)`}</label>
                 <input
                     id='cantidad'
                     type='number' 
