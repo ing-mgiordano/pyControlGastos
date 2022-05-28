@@ -36,7 +36,7 @@ const VentadaModal = ({
             setVentanaModal(false)
         }, 500);
     }
-
+    
     const handleSubmit = e => {
         e.preventDefault()
 
@@ -77,7 +77,7 @@ const VentadaModal = ({
                     type='text' 
                     placeholder='Añade nombre del Gasto'
                     value={nombre}
-                    onChange={e => setNombre(e.target.value)}
+                    onChange={e => setNombre(e.target.value.toUpperCase())}
                 />
             </div>
 

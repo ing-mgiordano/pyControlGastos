@@ -58,8 +58,8 @@ const Gasto = ({
     return (
         <SwipeableList>
             <SwipeableListItem
-                leadingActions = {leadingActions()}
-                trailingActions = {trailingActions()}
+                leadingActions = { leadingActions() }
+                trailingActions = { trailingActions() }
             >
                 <div className='gasto sombra'>
                     <div className='contenido-gasto'>

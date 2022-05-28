@@ -15,10 +15,10 @@ const ListadoGastos = ({
             <h2>{gastosFiltro.length ? 'Gastos' : 'No hay Gastos en esta Categoria'}</h2>
             {gastosFiltro.map(gasto => (
               <Gasto 
-                key={ gasto.id }
-                gasto={ gasto }
-                setGastoEditar={ setGastoEditar }
-                eliminarGasto={ eliminarGasto }
+                key = { gasto.id }
+                gasto = { gasto }
+                setGastoEditar = { setGastoEditar }
+                eliminarGasto = { eliminarGasto }
               />
             ))}
           </>
@@ -27,10 +27,10 @@ const ListadoGastos = ({
             <h2>{gastos.length ? 'Gastos' : 'No hay Gastos'}</h2>
             {gastos.map(gasto => (
               <Gasto 
-                key={ gasto.id }
-                gasto={ gasto }
-                setGastoEditar={ setGastoEditar }
-                eliminarGasto={ eliminarGasto }
+                key = { gasto.id }
+                gasto = { gasto }
+                setGastoEditar = { setGastoEditar }
+                eliminarGasto = { eliminarGasto }
               />
             ))}
           </>
