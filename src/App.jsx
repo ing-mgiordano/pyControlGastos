@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import Header from './components/Header'
+import Filtros from './components/Filtros'
 import ListadoGastos from './components/ListadoGastos'
 import VentadaModal from './components/VentadaModal'
 import { generarId } from './helpers'
@@ -21,6 +22,9 @@ function App() {
 
   const [gastoEditar, setGastoEditar] = useState({})
 
+  const [filtro, setFiltro] = useState('')
+  const [gastosFiltro, setGastosFiltro] = useState([])
+
   useEffect(() => {
     if(Object.keys(gastoEditar).length > 0) {
       setVentanaModal(true)
@@ -38,6 +42,13 @@ function App() {
   useEffect(() => {
     localStorage.setItem('gastos', JSON.stringify(gastos) ?? [])  //JSON.stringify (convierne objetos en strings porq en LS solo puedo almacenar strings)
   }, [gastos])
+
+  useEffect(() => {
+    if(filtro) {
+      const gastosFiltrados = gastos.filter(gasto => gasto.categoria === filtro)
+      setGastosFiltro(gastosFiltrados)
+    }
+  }, [filtro])
 
   useEffect(() => {
     const presupuestoLS = Number(localStorage.getItem('presupuesto')) ?? 0
@@ -97,10 +108,16 @@ function App() {
       {isValidPresupuesto && (   /* si el presupuesto es valido se imprime el icono de nuevo gasto */
         <>
           <main>
+            <Filtros
+              filtro={ filtro }
+              setFiltro={ setFiltro }
+            />
             <ListadoGastos 
               gastos={ gastos }
               setGastoEditar={ setGastoEditar }
               eliminarGasto={ eliminarGasto }
+              filtro={ filtro }
+              gastosFiltro={ gastosFiltro }
             />
           </main>
           <div  className='nuevo-gasto'>
