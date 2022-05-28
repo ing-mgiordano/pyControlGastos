@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react'
 
-const ControlPresupuesto = ({ gastos, presupuesto }) => {
+const ControlPresupuesto = ({ 
+    gastos, 
+    presupuesto
+}) => {
 
     const [disponible, setDisponible] = useState(0)
     const [gastado, setGastado] = useState(0)
@@ -8,7 +11,7 @@ const ControlPresupuesto = ({ gastos, presupuesto }) => {
     useEffect(() => {
         const totalGastado = gastos.reduce((total, gasto) => gasto.cantidad + total, 0)
         const totalDisponible = presupuesto - totalGastado
-        
+
         setDisponible(totalDisponible)
         setGastado(totalGastado)
     }, [gastos])
