@@ -3,7 +3,8 @@ import Gasto from './Gasto'
 
 const ListadoGastos = ({ 
   gastos,
-  setGastoEditar
+  setGastoEditar,
+  eliminarGasto
 }) => {
   return (
     <div className='listado-gastos contenedor'>
@@ -13,7 +14,8 @@ const ListadoGastos = ({
             <Gasto 
                 key={ gasto.id }
                 gasto={ gasto }
-                setGastoEditar = { setGastoEditar }
+                setGastoEditar={ setGastoEditar }
+                eliminarGasto={ eliminarGasto }
             />
         ))}
     </div>
