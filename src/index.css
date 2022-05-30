@@ -146,6 +146,7 @@ header h1 {
     color: #b91c1c;
 }
 .alerta.success {
+    text-align: center;
 }
 
 .contenedor {
